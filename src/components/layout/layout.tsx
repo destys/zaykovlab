@@ -57,8 +57,8 @@ const LayoutComponent: React.FC<ILayoutComponent> = ({ children }) => {
                 collapsible={true}
                 width={250}
             >
-                <div className="flex justify-center mb-10 demo-logo-vertical">
-                    <img src="/images/logo.png" alt="" className="max-h-40" />
+                <div className="flex justify-center my-10 demo-logo-vertical">
+                    <img src="/logo.svg" alt="" className="max-h-40" />
                 </div>
                 <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']} items={items} />
             </Sider>
