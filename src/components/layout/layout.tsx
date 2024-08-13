@@ -1,6 +1,6 @@
 import React, { ReactNode, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { DashboardOutlined, ToolFilled, TeamOutlined, HomeOutlined } from '@ant-design/icons';
+import { DashboardOutlined, ToolFilled, TeamOutlined, PlusSquareFilled } from '@ant-design/icons';
 import { Layout, Menu, theme } from 'antd';
 /* import { useAuth } from '../../context/auth-context';
 import useProjects from '../../hooks/use-projects'; */
@@ -17,7 +17,7 @@ const LayoutComponent: React.FC<ILayoutComponent> = ({ children }) => {
         token: { colorBgContainer, borderRadiusLG },
     } = theme.useToken();
 
-    const [collapsed, setCollapsed] = useState(false);
+    const [collapsed, setCollapsed] = useState(true);
     /* const { role } = useAuth(); */
     const navigate = useNavigate();
     /* const { data } = useProjects(); */
@@ -27,7 +27,7 @@ const LayoutComponent: React.FC<ILayoutComponent> = ({ children }) => {
     const items = [{
         key: 'dashboard',
         icon: <DashboardOutlined label='Dct' />,
-        label: `Общая информация`,
+        label: `Статистика`,
         onClick: () => navigate('/')
     }, {
         key: 'orders',
@@ -43,7 +43,7 @@ const LayoutComponent: React.FC<ILayoutComponent> = ({ children }) => {
     },
     {
         key: 'clinics',
-        icon: <HomeOutlined />,
+        icon: <PlusSquareFilled />,
         label: 'Клиники',
         onClick: () => navigate('/clinics')
     }]
@@ -53,14 +53,21 @@ const LayoutComponent: React.FC<ILayoutComponent> = ({ children }) => {
             <Sider
                 breakpoint="lg"
                 collapsedWidth="50"
-                collapsed={collapsed} onCollapse={setCollapsed}
+                defaultCollapsed={true}
+                collapsed={collapsed}
+                onCollapse={setCollapsed}
                 collapsible={true}
                 width={250}
             >
                 <div className="flex justify-center my-10 demo-logo-vertical">
-                    <img src="/logo.svg" alt="" className="max-h-40" />
+                    {collapsed ? (
+                        <img src="/logo-small.svg" alt="" className="max-h-20" />
+                    ) : (
+                        <img src="/logo.svg" alt="" className="max-h-40" />
+                    )}
+
                 </div>
-                <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']} items={items} />
+                <Menu theme="dark" mode="inline" defaultSelectedKeys={['dashboard']} items={items} />
             </Sider>
             <Layout className="flex flex-col h-[100vh]">
                 <Header />

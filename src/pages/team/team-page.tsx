@@ -1,64 +1,8 @@
-import { Button, Space, Table, Tag } from 'antd';
-import type { TableProps } from 'antd';
-import { EditFilled, DeleteFilled } from '@ant-design/icons';
+
 import PageTitle from "../../components/page-title/page-title"
+import TeamList from '../../components/team-list/team-list';
 
-
-interface DataType {
-    key: string;
-    name: string;
-    tel: string;
-    email: string;
-    tags: string[];
-}
-
-const columns: TableProps<DataType>['columns'] = [
-    {
-        title: 'Имя',
-        dataIndex: 'name',
-        key: 'name',
-    },
-
-    {
-        title: 'Роль',
-        key: 'tags',
-        dataIndex: 'tags',
-        render: (_, { tags }) => (
-            <>
-                {tags.map((tag) => {
-                    const color = tag.length > 5 ? 'green' : 'geekblue';
-                    return (
-                        <Tag color={color} key={tag}>
-                            {tag.toUpperCase()}
-                        </Tag>
-                    );
-                })}
-            </>
-        ),
-    },
-    {
-        title: 'Телефон',
-        dataIndex: 'tel',
-        key: 'tel',
-    },
-    {
-        title: 'Email',
-        dataIndex: 'email',
-        key: 'email',
-    },
-    {
-        title: 'Action',
-        key: 'action',
-        render: (/* record */) => (
-            <Space size="small">
-                <Button icon={<EditFilled />} />
-                <Button icon={<DeleteFilled />} />
-            </Space>
-        ),
-    },
-];
-
-const data: DataType[] = [
+const data = [
     {
         key: '1',
         name: 'John Brown',
@@ -86,7 +30,7 @@ const TeamPage = () => {
     return (
         <>
             <PageTitle title="Сотрудники" />
-            <Table columns={columns} dataSource={data} />
+            <TeamList data={data} />
         </>
     )
 }

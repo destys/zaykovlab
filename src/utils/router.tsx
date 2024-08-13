@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import DashboardPage from "../pages/dashboard/dashboard-page";
 import Root from "../components/root/root";
 import OrdersPage from "../pages/orders/orders-page";
@@ -8,6 +8,7 @@ import ProfilePage from "../pages/profile/profile-page";
 import NewOrderPage from "../pages/new-order/new-order-page";
 import ClinicsPage from "../pages/clinics/clinics-page";
 import ClinicPage from "../pages/clinic/clinic-page";
+import NotFoundPage from "../pages/not-found-page/not-found-page";
 
 export const router = createBrowserRouter([
     {
@@ -32,6 +33,10 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/profile",
+                element: <Navigate to="/profile/info" />,
+            },
+            {
+                path: "/profile/:id",
                 element: <ProfilePage />,
             },
             {
@@ -45,6 +50,11 @@ export const router = createBrowserRouter([
             {
                 path: "/clinics/:id",
                 element: <ClinicPage />,
+            },
+            // Маршрут для страницы 404
+            {
+                path: "*",
+                element: <NotFoundPage />,
             },
         ],
     },
