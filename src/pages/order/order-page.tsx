@@ -2,17 +2,19 @@ import { useParams } from "react-router-dom";
 import OrderHeader from "./components/order-header"
 import { Tabs } from "antd";
 import type { TabsProps } from 'antd';
+import OrderDetails from "../../components/order-details/order-details";
+import OrderAttachments from "../../components/order-attachments/order-attachments";
 
 const items: TabsProps['items'] = [
     {
         key: '1',
         label: 'Детали заказа',
-        children: 'Content of Tab Pane 1',
+        children: <OrderDetails />,
     },
     {
         key: '2',
         label: 'Вложения',
-        children: 'Content of Tab Pane 2',
+        children: <OrderAttachments />,
     },
 ];
 
