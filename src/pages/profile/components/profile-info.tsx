@@ -4,7 +4,7 @@ import { Button, Form, Input, Select, Space } from "antd"
 const ProfileInfo = () => {
     return (
         <Form layout="vertical">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid md:grid-cols-2 md:gap-4">
                 <Form.Item
                     name="username"
                     rules={[{ required: true, message: 'ФИО не может быть пустым' }]}

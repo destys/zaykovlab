@@ -1,4 +1,4 @@
-import { Button, Space, Table } from 'antd';
+import { Button, Grid, Space, Table } from 'antd';
 import type { TableProps } from 'antd';
 import { EditFilled, DeleteFilled } from '@ant-design/icons';
 import PageTitle from "../../components/page-title/page-title"
@@ -79,12 +79,16 @@ const data: DataType[] = [
     },
 ];
 
+const { useBreakpoint } = Grid;
+
 const ClinicsPage = () => {
+    const screens = useBreakpoint();
+    const isLargeScreen = screens.lg;
     const navigate = useNavigate();
     return (
         <>
             <PageTitle title="Клиники" />
-            <Table columns={columns} dataSource={data} rowClassName={() => 'cursor-pointer'}
+            <Table columns={columns} dataSource={data} scroll={{ x: isLargeScreen ? 1500 : 1000 }} rowClassName={() => 'cursor-pointer'}
                 onRow={(record) => {
                     return {
                         onClick: () => navigate(`/clinics/${record.key}`),

@@ -1,4 +1,4 @@
-import { Button, Space, Table, TableProps, Tag } from "antd";
+import { Button, Grid, Space, Table, TableProps, Tag } from "antd";
 import { EditFilled, DeleteFilled } from '@ant-design/icons';
 import { TeamDataType } from "../../types/team.types";
 
@@ -51,9 +51,15 @@ const columns: TableProps<TeamDataType>['columns'] = [
     },
 ];
 
+
+const { useBreakpoint } = Grid;
+
 const TeamList: React.FC<ITeamList> = ({ data }) => {
+    const screens = useBreakpoint();
+    const isLargeScreen = screens.lg;
+
     return (
-        <Table columns={columns} dataSource={data} />
+        <Table columns={columns} scroll={{ x: isLargeScreen ? 1500 : 1000 }} dataSource={data} />
     )
 }
 

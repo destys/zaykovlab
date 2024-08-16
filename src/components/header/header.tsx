@@ -1,4 +1,4 @@
-import { UserOutlined, BellFilled, SafetyOutlined, LogoutOutlined } from '@ant-design/icons';
+import { UserOutlined, PlusCircleOutlined, BellFilled, SafetyOutlined, LogoutOutlined } from '@ant-design/icons';
 import { Avatar, Badge, Button, Divider, Dropdown, Layout, MenuProps, theme } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
@@ -40,15 +40,15 @@ const HeaderBlock = () => {
       background: colorBgContainer,
       borderRadius: borderRadiusLG,
     }}>
-      <Button onClick={() => navigate('/new-order')}>Создать проект</Button>
+      <Button onClick={() => navigate('/new-order')} icon={<PlusCircleOutlined />}><span className="!hidden md:!inline">Создать проект</span></Button>
       <div className="flex items-center">
         <Badge dot={true} offset={[-7, 25]} className="p-2 rounded cursor-pointer hover:bg-gray-200">
           <BellFilled className="text-xl" />
         </Badge>
         <Divider type="vertical" className="h-16" />
-        <div className="group flex items-center gap-2 px-2 cursor-pointer rounded min-w-56" onClick={()=> navigate('/clinics/123')}>
+        <div className="group flex items-center gap-2 px-2 cursor-pointer rounded md:min-w-56" onClick={() => navigate('/clinics/123')}>
           <Avatar size={32} shape="square">Z</Avatar>
-          <div>ZaykovLab</div>
+          <div className="text-[0px] md:text-base">ZaykovLab</div>
         </div>
         <Divider type="vertical" className="h-16" />
         <Dropdown menu={{ items }} trigger={['click']} placement="bottomRight">

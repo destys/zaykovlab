@@ -18,7 +18,7 @@ const DashboardOrdersHistory = () => {
         ]
     };
     return (
-        <div className="flex justify-center p-3 bg-blue-50 rounded">
+        <div className="flex justify-center p-3 bg-blue-50 rounded max-w-full">
             <ReactECharts option={option} className='flex-auto' />
         </div>
     )

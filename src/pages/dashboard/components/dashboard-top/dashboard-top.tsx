@@ -27,10 +27,10 @@ const DashboardTop = () => {
     const total = data.reduce((acc, item) => acc + item.count, 0);
 
     return (
-        <div className="col-span-3 grid grid-cols-5 gap-2">
-            <div className="px-2 py-3 rounded bg-blue-50 font-lg">
+        <div className="lg:col-span-3 grid xs:grid-cols-3 md:grid-cols-5 gap-2">
+            <div className="flex flex-col px-2 py-3 rounded bg-blue-50 font-lg">
                 Всего в работе
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 mt-auto">
                     <div className="font-bold text-2xl">
                         {total}
                     </div>

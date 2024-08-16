@@ -41,9 +41,9 @@ const DashboardTopItem: React.FC<IDashboardTopItem> = ({ item, total }) => {
 
     return (
         <Tooltip placement="top" title={`${((item.count / total) * 100).toFixed(2)}%`} >
-            <div className="px-2 py-3 rounded bg-blue-50 font-lg">
+            <div className="flex flex-col px-2 py-3 rounded bg-blue-50 font-lg">
                 {item.title}
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 mt-auto">
                     <div>
                         <ReactECharts option={option} className="!w-11 !h-11" />
                     </div>
